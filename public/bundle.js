@@ -26795,8 +26795,6 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -26837,8 +26835,6 @@ var WeatherForm = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			var _React$createElement;
-
 			return _react2.default.createElement(
 				'div',
 				null,
@@ -26846,7 +26842,7 @@ var WeatherForm = function (_React$Component) {
 					'form',
 					{ onSubmit: this.onFormSubmit },
 					_react2.default.createElement('input', { type: 'text', value: this.state.value, placeholder: 'Enter the city', onChange: this.handleChange }),
-					_react2.default.createElement('input', (_React$createElement = { className: 'centered', type: 'submit' }, _defineProperty(_React$createElement, 'className', 'button'), _defineProperty(_React$createElement, 'value', 'Get weather'), _React$createElement))
+					_react2.default.createElement('input', { type: 'submit', className: 'expanded hollow button', value: 'Get weather' })
 				)
 			);
 		}
