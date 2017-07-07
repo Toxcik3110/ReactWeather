@@ -26584,43 +26584,82 @@ var Nav = function (_React$Component) {
 	function Nav(props) {
 		_classCallCheck(this, Nav);
 
-		return _possibleConstructorReturn(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).call(this, props));
+		var _this = _possibleConstructorReturn(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).call(this, props));
+
+		_this.onSearch = _this.onSearch.bind(_this);
+		return _this;
 	}
 
 	_createClass(Nav, [{
+		key: 'onSearch',
+		value: function onSearch(e) {
+			e.preventDefault();
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'top-bar' },
 				_react2.default.createElement(
-					'ul',
-					null,
+					'div',
+					{ className: 'top-bar-left' },
 					_react2.default.createElement(
-						'li',
-						null,
+						'ul',
+						{ className: 'menu' },
 						_react2.default.createElement(
-							_reactRouterDom.NavLink,
-							{ to: '/weather', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-							'React Weather'
+							'li',
+							{ className: 'menu-text' },
+							'React weather app'
+						),
+						_react2.default.createElement(
+							'li',
+							null,
+							_react2.default.createElement(
+								_reactRouterDom.NavLink,
+								{ to: '/weather', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+								'React Weather'
+							)
+						),
+						_react2.default.createElement(
+							'li',
+							null,
+							_react2.default.createElement(
+								_reactRouterDom.NavLink,
+								{ to: '/about', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+								'About'
+							)
+						),
+						_react2.default.createElement(
+							'li',
+							null,
+							_react2.default.createElement(
+								_reactRouterDom.NavLink,
+								{ to: '/examples', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+								'Examples'
+							)
 						)
-					),
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'top-bar-right' },
 					_react2.default.createElement(
-						'li',
-						null,
+						'form',
+						{ onSubmit: this.onSearch },
 						_react2.default.createElement(
-							_reactRouterDom.NavLink,
-							{ to: '/about', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-							'About'
-						)
-					),
-					_react2.default.createElement(
-						'li',
-						null,
-						_react2.default.createElement(
-							_reactRouterDom.NavLink,
-							{ to: '/examples', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-							'Examples'
+							'ul',
+							{ className: 'menu' },
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement('input', { type: 'search', placeholder: 'Search weather' })
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement('input', { type: 'submit', className: 'button', value: 'Get weather' })
+							)
 						)
 					)
 				)
