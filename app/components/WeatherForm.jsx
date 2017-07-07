@@ -4,7 +4,7 @@ class WeatherForm extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {value:0}
+		this.state = {value:''}
 
 		this.handleChange = this.handleChange.bind(this);
 		this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -29,7 +29,7 @@ class WeatherForm extends React.Component {
 			<div>
 				<form onSubmit={this.onFormSubmit}>
 					<input type="text" value={this.state.value} placeholder="Enter the city" onChange={this.handleChange} />
-					<input type="submit" className="button" value="Get weather" />
+					<input className='centered' type="submit" className="button" value="Get weather" />
 				</form>
 			</div>
 		);
