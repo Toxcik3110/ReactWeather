@@ -16,7 +16,8 @@ class Main extends React.Component {
 			<Router>
 				<div>
 					<Nav />
-					<Route exact path='/weather' component={Weater} />
+					<Route exact path='/' component={Weater} />
+					<Route path='/weather' component={Weater} />
 					<Route path='/about' component={About} />
 					<Route path='/examples' component={Examples} />
 				</div>
