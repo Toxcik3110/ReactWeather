@@ -30,7 +30,7 @@ class Weather extends React.Component {
 		var {temp, location} = this.state;
 		return (
 			<div>
-				<h3>Weather Component</h3>
+				<h3 className="text-center">Weather Component</h3>
 				<WeatherForm onSearch={this.handleSearch} />
 				<WeatherMessage temp={temp} location={location} />
 			</div>

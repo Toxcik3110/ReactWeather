@@ -24214,10 +24214,20 @@ var Main = function (_React$Component) {
 					'div',
 					null,
 					_react2.default.createElement(_Nav2.default, null),
-					_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Weather2.default }),
-					_react2.default.createElement(_reactRouterDom.Route, { path: '/weather', component: _Weather2.default }),
-					_react2.default.createElement(_reactRouterDom.Route, { path: '/about', component: _About2.default }),
-					_react2.default.createElement(_reactRouterDom.Route, { path: '/examples', component: _Examples2.default })
+					_react2.default.createElement(
+						'div',
+						{ className: 'grid-x grid-margin-x' },
+						_react2.default.createElement('div', { className: 'auto cell' }),
+						_react2.default.createElement(
+							'div',
+							{ className: 'medium-6 large-4 cell' },
+							_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Weather2.default }),
+							_react2.default.createElement(_reactRouterDom.Route, { path: '/weather', component: _Weather2.default }),
+							_react2.default.createElement(_reactRouterDom.Route, { path: '/about', component: _About2.default }),
+							_react2.default.createElement(_reactRouterDom.Route, { path: '/examples', component: _Examples2.default })
+						),
+						_react2.default.createElement('div', { className: 'auto cell' })
+					)
 				)
 			);
 		}
@@ -26750,7 +26760,7 @@ var Weather = function (_React$Component) {
 				null,
 				_react2.default.createElement(
 					'h3',
-					null,
+					{ className: 'text-center' },
 					'Weather Component'
 				),
 				_react2.default.createElement(_WeatherForm2.default, { onSearch: this.handleSearch }),
@@ -26832,11 +26842,7 @@ var WeatherForm = function (_React$Component) {
 					"form",
 					{ onSubmit: this.onFormSubmit },
 					_react2.default.createElement("input", { type: "text", value: this.state.value, placeholder: "Enter the city", onChange: this.handleChange }),
-					_react2.default.createElement(
-						"button",
-						null,
-						"Get weather"
-					)
+					_react2.default.createElement("input", { type: "submit", className: "button", value: "Get weather" })
 				)
 			);
 		}
@@ -26887,20 +26893,20 @@ var WeatherMessage = function (_React$Component) {
 	}
 
 	_createClass(WeatherMessage, [{
-		key: 'render',
+		key: "render",
 		value: function render() {
 			// var {temp, location} = this.props;
 			return _react2.default.createElement(
-				'div',
+				"div",
 				null,
 				_react2.default.createElement(
-					'h3',
-					null,
-					'It is it ',
+					"h3",
+					{ className: "text-center" },
+					"It is it ",
 					this.props.temp,
-					' in ',
+					" in ",
 					this.props.location,
-					'.'
+					"."
 				)
 			);
 		}
@@ -27926,6 +27932,8 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouterDom = __webpack_require__(95);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27951,13 +27959,35 @@ var Examples = function (_React$Component) {
 				null,
 				_react2.default.createElement(
 					'h3',
-					null,
-					'Examples Component!'
+					{ className: 'text-center' },
+					'Examples'
 				),
 				_react2.default.createElement(
 					'p',
 					null,
-					'Welcome to examples page'
+					'Here a few example locations to try out:'
+				),
+				_react2.default.createElement(
+					'ol',
+					null,
+					_react2.default.createElement(
+						'li',
+						null,
+						_react2.default.createElement(
+							_reactRouterDom.NavLink,
+							{ to: '/?location=Philadelphia' },
+							'Philadelphia, PA'
+						)
+					),
+					_react2.default.createElement(
+						'li',
+						null,
+						_react2.default.createElement(
+							_reactRouterDom.NavLink,
+							{ to: '/?location=Rio' },
+							'Rio, Brazil'
+						)
+					)
 				)
 			);
 		}
