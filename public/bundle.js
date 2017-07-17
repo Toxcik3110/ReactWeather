@@ -27043,13 +27043,28 @@ var Nav = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).call(this, props));
 
 		_this.onSearch = _this.onSearch.bind(_this);
+		_this.handleChange = _this.handleChange.bind(_this);
+		_this.state = { value: '' };
 		return _this;
 	}
 
 	_createClass(Nav, [{
+		key: 'handleChange',
+		value: function handleChange(e) {
+			this.setState({
+				value: e.target.value
+			});
+		}
+	}, {
 		key: 'onSearch',
 		value: function onSearch(e) {
 			e.preventDefault();
+			var location = this.state.value;
+			if (location.length > 0) {
+				var encodedLocation = encodeURIComponent(location);
+				this.state.value = '';
+				window.location.search = '?location=' + encodedLocation;
+			}
 		}
 	}, {
 		key: 'render',
@@ -27109,7 +27124,7 @@ var Nav = function (_React$Component) {
 							_react2.default.createElement(
 								'li',
 								null,
-								_react2.default.createElement('input', { type: 'search', placeholder: 'Search weather by city' })
+								_react2.default.createElement('input', { type: 'search', placeholder: 'Search weather by city', value: this.state.value, onChange: this.handleChange })
 							),
 							_react2.default.createElement(
 								'li',
@@ -27188,14 +27203,25 @@ var Weather = function (_React$Component) {
 
 	_createClass(Weather, [{
 		key: 'componentDidMount',
-		value: function componentDidMount() {}
+		value: function componentDidMount() {
+			// console.log(this.props)
+			var location = this.props.location.search.split("=")[1];
+			if (location && location.length > 0) {
+				this.handleSearch(location);
+				// console.log(window.location);
+				// window.location.search = "";
+				window.location.hash = "#/";
+			}
+		}
 	}, {
 		key: 'handleSearch',
 		value: function handleSearch(location) {
 			var that = this;
 			that.setState({
 				isLoading: true,
-				errorMessage: undefined
+				errorMessage: undefined,
+				location: undefined,
+				temp: undefined
 			});
 			_openWeatherMap2.default.getTemp(location).then(function (temp) {
 				that.setState({

@@ -5,11 +5,24 @@ class Nav extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onSearch = this.onSearch.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+		this.state = {value:''};
+	}
+
+	handleChange(e) {
+		this.setState({
+			value: e.target.value
+		});
 	}
 
 	onSearch(e) {
 		e.preventDefault();
-
+		var location = this.state.value;
+		if(location.length > 0) {
+			var encodedLocation = encodeURIComponent(location);
+			this.state.value = '';
+			window.location.search='?location=' + encodedLocation;
+		}
 	}
 
 	render() {
@@ -27,7 +40,7 @@ class Nav extends React.Component {
 					<form onSubmit={this.onSearch}>
 						<ul className="menu">
 							<li>
-								<input type="search" placeholder="Search weather by city" />
+								<input type="search" placeholder="Search weather by city" value={this.state.value} onChange={this.handleChange} />
 							</li>
 							<li>
 								<input type="submit" className="button" value="Get weather" />
