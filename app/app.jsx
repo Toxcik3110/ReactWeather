@@ -6,6 +6,9 @@ import Main from './components/Main';
 import 'style-loader!css-loader!foundation-sites/dist/css/foundation.min.css';
 $(document).foundation();
 
+//APP CSS
+import 'style-loader!css-loader!applicationStyles';
+
 ReactDOM.render(
 	<Main />,
 	document.getElementById("app")
