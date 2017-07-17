@@ -7,7 +7,7 @@ import 'style-loader!css-loader!foundation-sites/dist/css/foundation.min.css';
 $(document).foundation();
 
 //APP CSS
-import 'style-loader!css-loader!applicationStyles';
+import 'style-loader!css-loader!sass-loader!applicationStyles';
 
 ReactDOM.render(
 	<Main />,
